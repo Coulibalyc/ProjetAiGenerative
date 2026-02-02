@@ -1,0 +1,18 @@
+# Environnements virtuels
+venv/
+.env
+
+# Streamlit cache/config locale
+.streamlit/
+
+# Fichiers temporaires
+__pycache__/
+*.pyc
+
+# Modèles / embeddings
+*.pkl
+
+# Fichiers système Windows
+*:Zone.Identifier
+.DS_Store
+Thumbs.db

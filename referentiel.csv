@@ -1,0 +1,51 @@
+﻿job,skill_block,skill
+Data Analyst,Data Analysis,I perform data cleaning using Python libraries such as Pandas and Numpy to obtain reliable datasets.
+Data Analyst,Data Analysis,I create visualizations using Matplotlib and Seaborn to support decision-making.
+Data Analyst,Data Analysis,I conduct descriptive statistical analysis with Pandas to identify key trends.
+Data Analyst,Reporting,I build dynamic dashboards with Power BI or Tableau to monitor business performance.
+Data Analyst,SQL,I query SQL databases to extract the information required for analysis.
+Data Scientist,Data Analysis,I explore large datasets using Pandas and Numpy to identify relationships and patterns.
+Data Scientist,Machine Learning,I build predictive models with Scikit-learn to solve business problems.
+Data Scientist,Machine Learning,I perform feature engineering with Pandas and Scikit-learn to improve model performance.
+Data Scientist,NLP,I analyze text using NLTK and SpaCy to extract meaningful insights.
+Data Scientist,Deep Learning,I develop neural networks with TensorFlow or PyTorch to process complex data.
+Data Engineer,Data Pipelines,I build automated data pipelines using Airflow or Luigi to manage data workflows.
+Data Engineer,Big Data,I process distributed datasets with Spark to efficiently handle large-scale data.
+Data Engineer,Data Storage,I manage storage systems like AWS S3 or GCP Storage to ensure data availability.
+Data Engineer,ETL,I develop ETL processes using Python to integrate and transform data.
+Data Engineer,DevOps,I containerize applications with Docker to ease deployment and scalability.
+Machine Learning Engineer,ML Systems,I deploy ML models using MLflow to track and manage their performance.
+Machine Learning Engineer,Model Optimization,I optimize models with Optuna to improve accuracy.
+Machine Learning Engineer,ML Pipelines,I create automated ML pipelines with Scikit-learn and Airflow to streamline workflows.
+Machine Learning Engineer,API,I deploy models through Flask or FastAPI APIs for integration into applications.
+Machine Learning Engineer,Monitoring,I monitor model performance using Prometheus to detect drifts.
+NLP Engineer,NLP,I clean and prepare text using NLTK or SpaCy to ensure accurate text processing.
+NLP Engineer,NLP,I build text classification models with Scikit-learn to categorize documents.
+NLP Engineer,Embeddings,I generate embeddings using SentenceTransformers to measure text similarity.
+NLP Engineer,Transformers,I fine-tune BERT models using Hugging Face for advanced NLP tasks.
+NLP Engineer,Chatbots,I develop chatbots with Rasa to automate user interactions.
+MLOps Engineer,CI-CD,I implement CI/CD pipelines using GitHub Actions to automate ML deployments.
+MLOps Engineer,Containers,I build Docker images to deploy ML services efficiently.
+MLOps Engineer,Cloud,I deploy models on AWS SageMaker to ensure scalability.
+MLOps Engineer,Monitoring,I set up monitoring systems using Grafana/Prometheus to track model health.
+MLOps Engineer,Automation,I automate model retraining with Airflow to maintain performance.
+Business Analyst,Business Analysis,I analyze business requirements using Excel or Google Sheets to propose data-driven solutions.
+Business Analyst,Reporting,I create automated dashboards with Power BI to track key indicators.
+Business Analyst,Communication,I prepare presentations using PowerPoint to communicate insights to stakeholders.
+Business Analyst,Decision Making,I interpret analytical results to support strategic decisions.
+Business Analyst,Data Analysis,I cross-analyze data with SQL to extract useful metrics.
+Cloud Data Engineer,Cloud,I configure cloud services such as AWS Lambda to run serverless data processing tasks.
+Cloud Data Engineer,Storage,I optimize data storage using Redshift or BigQuery to improve query performance.
+Cloud Data Engineer,Orchestration,I build cloud workflows with AWS Step Functions to automate processes.
+Cloud Data Engineer,Security,I set up IAM policies to secure data access.
+Cloud Data Engineer,Streaming,I process real‑time data streams using Kafka to maintain continuous data pipelines.
+Data Architect,Architecture,I design data models using DBT or ERD tools to ensure coherent data structures.
+Data Architect,Cloud,I define cloud data architectures with AWS or Azure to support analytics systems.
+Data Architect,Governance,I implement governance policies to guarantee data quality and consistency.
+Data Architect,Storage,I select suitable storage technologies to ensure performance and durability.
+Data Architect,Integration,I build integration strategies using API Gateway to centralize data flows.
+Product Owner Data,Project Management,I define user needs using Trello or Jira to prioritize the data roadmap.
+Product Owner Data,Communication,I communicate requirements to technical teams to ensure proper implementation.
+Product Owner Data,Planning,I plan sprints using Jira to organize development cycles.
+Product Owner Data,KPIs,I define success indicators to track the performance of data projects.
+Product Owner Data,User Research,I conduct user interviews to align data solutions with real needs.
