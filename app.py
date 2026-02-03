@@ -11,9 +11,6 @@ import altair as alt
    
 import plotly.express as px
 
-# ============================================================
-# 0) CONFIGURATION GLOBALE (log, page, cache, sécurité)
-# ============================================================
 
 st.set_page_config(page_title="AI Job Recommender", layout="wide")
 
@@ -24,15 +21,12 @@ logging.basicConfig(
 
 # Vérification de la clé API
 if "GEMINI_API_KEY" not in st.secrets:
-    st.error("❌ Aucune clé API Gemini trouvée dans secrets.toml")
+    st.error("Aucune clé API Gemini trouvée dans secrets.toml")
     st.stop()
 
 # Gemini client
 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
-# ============================================================
-# 1) FONCTION DE NETTOYAGE ÉTENDUE
-# ============================================================
 
 def clean_text(text):
     text = text.lower()
@@ -40,10 +34,6 @@ def clean_text(text):
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
-
-# ============================================================
-# 2) PIPELINE GENAI : Reformulation + Explication
-# ============================================================
 
 def reformulate_text(text):
     try:
@@ -53,7 +43,7 @@ def reformulate_text(text):
         )
         return response.text
     except Exception as e:
-        st.warning(f"⚠️ Reformulation failed: {e}")
+        st.warning(f"Reformulation failed: {e}")
         return text
 
 
@@ -72,12 +62,9 @@ Explain in 5 bullet points why this job matches.
         )
         return response.text
     except Exception as e:
-        return f"⚠️ Explanation unavailable: {e}"
+        return f"Explanation unavailable: {e}"
 
 
-# ============================================================
-# 3) CACHE : Charger SBERT & embeddings
-# ============================================================
 
 @st.cache_resource
 def load_sbert():
@@ -94,9 +81,6 @@ df = load_referential()
 skill_matrix = np.vstack(df["embedding"].values)
 
 
-# ============================================================
-# 4) INTERFACE STREAMLIT
-# ============================================================
 
 st.title("Recommandateur d’emplois basé sur l’IA (SBERT + Gemini)")
 st.write("Décrivez vos expériences professionnelles :")
@@ -115,14 +99,14 @@ if st.button("Analyser"):
         st.warning("Veuillez remplir au moins un champ.")
         st.stop()
 
-    # 🔹 Étape 1 : nettoyage
+    # Étape 1 : nettoyage
     user_clean = clean_text(user_full_text)
 
     # 🔹 Étape 2 : reformulation GenAI
     st.info(" Reformulation du texte via Gemini…")
     user_ai_clean = reformulate_text(user_clean)
 
-    # 🔹 Étape 3 : SBERT
+    # Étape 3 : SBERT
     user_emb = model.encode(user_ai_clean, device="cpu")
 
     # 🔹 Étape 4 : similarité
@@ -132,18 +116,14 @@ if st.button("Analyser"):
     job_scores = df.groupby("job")["similarity"].mean().sort_values(ascending=False)
     best_job = job_scores.index[0]
 
-    # 🔹 Étape 5 : explication
+    # Étape 5 : explication
     explanation = explain_prediction(user_ai_clean, best_job)
 
-    # ============================================================
-    # 5) AFFICHAGE EN TABS
-    # ============================================================
+
 
     tab1, tab2, tab3 = st.tabs(["Résultat", "Graphiques", "Détails"])
 
-    # ------------------------------------------------------------
-    # TAB 1 : Résultat
-    # ------------------------------------------------------------
+
     with tab1:
         st.success(f"Métier recommandé : **{best_job}**")
         st.write(explanation)
@@ -154,9 +134,7 @@ if st.button("Analyser"):
         st.subheader("Compétences les plus proches")
         st.dataframe(df.sort_values("similarity", ascending=False).head(10))
 
-    # ------------------------------------------------------------
-    # TAB 2 : Graphiques
-    # ------------------------------------------------------------
+
    
     with tab2:
         st.subheader("Similarité par métier")
@@ -175,9 +153,6 @@ if st.button("Analyser"):
 
 
 
-    # ------------------------------------------------------------
-    # TAB 3 : Texte analysé
-    # ------------------------------------------------------------
     with tab3:
         st.write("Texte reformulé par Gemini :")
         st.info(user_ai_clean)

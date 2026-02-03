@@ -1,61 +1,134 @@
-# 🔍 AI Job Recommender  
-**Analyse sémantique des compétences & recommandation de métiers (SBERT + GenAI)**
+# AI Job Recommender  
+### Analyse sémantique des compétences & recommandation de métiers  
+**SBERT · Gemini API · Streamlit**
 
 ---
 
-## 📌 Description du projet
+## Description du projet
 
-Ce projet a pour objectif de concevoir une **application d’intelligence artificielle** capable de recommander un métier à un utilisateur à partir de la description de :
+Ce projet vise à concevoir une **solution d’IA générative et de NLP sémantique** capable de :
 
-- ses compétences,
-- ses projets réalisés,
-- ses missions professionnelles,
-- ses outils maîtrisés.
+- analyser un profil professionnel (compétences, projets, missions, outils) ;
+- calculer la similarité avec un référentiel de métiers ;
+- recommander le **métier le plus pertinent** ;
+- fournir une **explication contextualisée** grâce à une API de GenAI (Gemini).
 
-L’approche repose sur :
-- des **embeddings sémantiques (SBERT)** pour mesurer la similarité,
-- un **référentiel structuré de compétences métiers**,
-- l’intégration d’une **API de GenAI (Gemini)** pour enrichir et expliquer les résultats.
+L’application est développée avec **Streamlit** afin d’offrir une interface web interactive et intuitive.
 
 ---
 
-## 🎯 Objectifs pédagogiques
+## Objectifs pédagogiques
 
 Ce projet permet de :
 
 - appliquer le **prétraitement de texte** et les **embeddings sémantiques** ;
-- distinguer **analyse numérique** (scores de similarité) et **analyse sémantique contextualisée** ;
-- implémenter un **moteur de similarité basé sur SBERT** ;
-- structurer un **référentiel de compétences professionnel** ;
-- développer une **interface web interactive avec Streamlit** ;
-- intégrer une **API de GenAI de manière responsable et contrôlée** ;
-- concevoir un **pipeline NLP complet** (Nettoyage → Embeddings → Similarité → Recommandation → Explication IA).
+- implémenter un moteur de **similarité sémantique avec SBERT** ;
+- distinguer **scores numériques** et **analyse sémantique contextualisée** ;
+- structurer un **référentiel de compétences professionnelles** ;
+- intégrer une **API d’IA générative** de manière responsable et économique ;
+- développer une **application web interactive** ;
+- concevoir un **pipeline NLP complet** :
+  - Nettoyage  
+  - Embedding  
+  - Scoring  
+  - Recommandation  
+  - Explication par IA générative  
 
 ---
 
-## 🧠 Technologies utilisées
+## Architecture du projet
 
-| Outil | Rôle |
-|------|------|
-| **Python** | Langage principal |
-| **Streamlit** | Interface web |
-| **Sentence-Transformers (SBERT)** | Embeddings sémantiques |
-| **Scikit-learn** | Similarité cosinus |
-| **Google Gemini API** | Reformulation & explication IA |
-| **Pandas / NumPy** | Manipulation des données |
-| **Plotly** | Visualisations interactives |
-
----
-
-## ⚙️ Installation
-
-### 1️⃣ Créer un environnement virtuel
 ```bash
+projet_ia_generative/
+│
+├── app.py
+├── projet_ia_generative.ipynb
+├── referentiel.csv
+├── referentiel_embeddings.pkl
+├── requirements.txt
+│
+├── .streamlit/
+│   └── secrets.toml
+│
+└── README.md
+```
+
+---
+
+## Technologies utilisées
+
+### NLP & IA
+- Sentence Transformers (SBERT) — `all-MiniLM-L6-v2`
+- Google Gemini API
+
+### Data & Calcul
+- pandas, numpy
+- scikit-learn (cosine similarity)
+
+### Visualisation & Web
+- Streamlit
+- Plotly
+
+---
+
+## Installation
+
+```bash
+git clone <url-du-repo>
+cd projet_ia_generative
 python -m venv venv
-source venv/bin/activate  # Linux / Mac
-venv\Scripts\activate     # Windows
+```
 
+Activation :
 
+```bash
+source venv/bin/activate   # Linux / macOS
+venv\Scripts\activate    # Windows
+```
+
+Installation des dépendances :
+
+```bash
 pip install -r requirements.txt
+```
 
+---
+
+## Configuration Gemini
+
+Créer `.streamlit/secrets.toml` :
+
+```toml
+GEMINI_API_KEY = "VOTRE_CLE_API"
+```
+
+---
+
+## Lancer l’application
+
+```bash
 streamlit run app.py
+```
+
+---
+
+##  Perspectives
+
+- Pondération avancée
+- Authentification
+- Historique
+- Déploiement cloud
+- Multilingue
+
+---
+
+## Contexte académique
+
+EFREI – Data Engineering & Artificial Intelligence  
+Année : 2025–2026
+
+---
+
+## Licence
+
+Projet pédagogique – usage libre pour l’apprentissage.
